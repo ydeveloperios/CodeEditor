@@ -259,13 +259,11 @@ final class UXCodeTextView: UXTextView {
           highlightr.setTheme(to: (newTheme ?? themeName).rawValue),
           let theme      = highlightr.theme else { return false }
     
-    guard theme.codeFont?.pointSize != newSize else { return true }
-    
     theme.codeFont       = theme.codeFont?      .withSize(newSize)
     theme.boldCodeFont   = theme.boldCodeFont?  .withSize(newSize)
     theme.italicCodeFont = theme.italicCodeFont?.withSize(newSize)
     self.backgroundColor = theme.themeBackgroundColor
-    if let font = theme.codeFont, font !== self.font { self.font = font }
+
     return true
   }
 }
