@@ -263,7 +263,7 @@ final class UXCodeTextView: UXTextView {
     theme.boldCodeFont   = theme.boldCodeFont?  .withSize(newSize)
     theme.italicCodeFont = theme.italicCodeFont?.withSize(newSize)
     self.backgroundColor = theme.themeBackgroundColor
-    self.font = font
+    if let font = theme.codeFont, font !== self.font { self.font = font }
 
     return true
   }
